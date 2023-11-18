@@ -1,0 +1,99 @@
+nano file.sh
+./file.sh
+if not run due to access denied chmode +x file.sh
+
+
+
+1
+echo "Enter the number"
+read n
+for((i=1;i<=10;i++))
+do
+	echo $n"*"$i"="$n*$i
+done
+
+
+2
+
+echo "1.Addition"
+echo "2.Subtraction"
+echo "3.Multiplication"
+echo "4.Division"
+read n
+echo "Enter number 1"
+read a
+echo "Enter number 2"
+read b
+if(($n==1))
+then
+	add=$(($a+$b))
+	echo "Sum of numbers is "$add
+elif(($n==2))
+then
+	diff=$(($a-$b))
+	echo "Diff of number is "$diff
+elif(($n==3))
+then
+	mul=$(($a*$b))
+	echo "Multi of number is "$mul
+elif(($n==4))
+then
+	if(($b!=0))
+	then
+		div=$(($a/$b))
+		echo "Div of number is "$div
+	fi
+else
+	echo "Invalid choice"
+fi
+
+
+Alter
+switch case
+
+echo "Add"
+echo "diff"
+echo "mul"
+echo "div"
+read n
+read a
+read b
+case $n in
+	1)
+		add=$(($a+$b))
+		echo "Sum: "$add
+		;;
+	2)
+		diff=$(($a-$b))
+		echo "diff: "$diff
+		;;
+	3)
+		mul=$(($a*$b))
+		echo "Mul: "$mul
+		;;
+	4)
+		div=$(($a/$b))
+		echo "Div: "$div
+	*)
+		echo "Invalid Choice"
+		;;
+esac 
+
+3.
+read n
+for((i=2;i<=$n;i++))
+do
+	count=0
+	for((j=1;j<=i;j++))
+	do
+		if(($i%$j==0))
+		then
+			count=$count+1
+		fi
+	done
+	if(($count==2))
+	then
+		echo $i " "
+	fi
+done
+
