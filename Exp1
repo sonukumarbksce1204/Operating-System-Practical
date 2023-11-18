@@ -1,0 +1,28 @@
+Exp1
+pwd- to get the present working directory
+cd- to change the directory 
+ls- to list all the files in the present working directory
+
+2.
+mkdir file1
+touch file1.txt
+cat>>file1.txt
+Name
+Reg.No.
+mv file1.txt regno.txt
+
+3.
+cp regno.txt /root
+rm regno.txt
+
+4.
+mkdir name
+mkdir jio aitrel apple banana
+mv jio airtel apple banana /root
+
+
+5.
+mkdri regno
+cd regno
+mkdir ram sita hanuman bharat lakshman
+
