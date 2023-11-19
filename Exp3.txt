@@ -1,0 +1,57 @@
+1.
+
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<unistd.h>
+#include<stdio.h>
+int main(){
+	int fd,sz;
+	fd=open("File.txt",O_RDONLY);
+	sz=lseek(fd,0,SEEK_END);
+	lseek(fd,0,SEEK_SET);
+	int half=sz/2;
+	int wr;
+	wr=open("half.txt",O_CREAT|O_WRONLY,0666);
+	char buff[half];
+	read(fd,buff,half);
+	write(wr,buff,half);
+	close(fd);
+	
+}
+
+2.
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<unistd.h>
+#include<stdio.h>
+int main(){
+	int fd;
+	fd=open("File.txt",O_CREAT|O_WRONLY,0666);
+	char b[1];
+	while(read(1,b,1)){
+		if(*b=='$'){
+			break;
+		}
+		else{
+			write(fd,b,1);
+		}
+	}
+	close(fd);
+}
+
+3.
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<unistd.h>
+#include<stdio.h>
+int main(){
+	int fd;
+	fd=open("File.txt",O_RDONLY);
+	char buf;
+	while(read(fd,&buf,1)){
+		write(1,&buf,1);
+	}
+}
