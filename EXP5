@@ -1,0 +1,124 @@
+1.
+#include<sys/types.h>
+#include<unistd.h>
+#include<stdio.h>
+int main(){
+        int n;
+        scanf("%d",&n);
+        for(int i=0;i<n;i++){
+                int pid=fork();
+                if(pid==0){
+                        printf("%d\n",getpid());
+                }
+        }
+
+}
+
+2.
+#include<sys/types.h>
+#include<unistd.h>
+#include<stdio.h>
+int main(){
+        int ppid1=getppid();
+        int pid1=getpid();
+        printf("Parent id:%d child id:%d\n",ppid1,pid1);
+        int pid=fork();
+        if(pid==0){
+                int ppid2=getppid();
+                int pid2=getpid();
+                printf("Parent id:%d child id:%d\n",ppid2,pid2);
+                pid2=fork();
+                if(pid==0){
+                        int ppid3=getppid();
+                        int pid3=getpid();
+                        printf("Parent id:%d child id:%d\n",ppid3,pid3);
+                }
+        }
+}
+
+3.
+
+#include<sys/types.h>
+#include<unistd.h>
+#include<stdio.h>
+int main(){
+        int ppid1=getppid();
+        int pid1=getpid();
+        printf("Parent id:%d child id1:%d\n",ppid1,pid1);
+        int pid=fork();
+        if(pid==0){
+                int ppid2=getppid();
+                int pid2=getpid();
+                printf("Parent id:%d child id2:%d\n",ppid2,pid2);
+                pid2=fork();
+                if(pid2==0){
+                        sleep(5);
+                        int ppid3=getppid();
+                        int pid3=getpid();
+                        printf("Parent id:%d child id3:%d\n",ppid3,pid3);
+                }
+        }
+        int pidd=fork();
+        if(pidd==0){
+                int ppid4=getppid();
+                int pid4=getpid();
+                printf("Parent id:%d child id4:%d\n",ppid4,pid4);
+                pid4=fork();
+                if(pid4==0){
+                        int ppid5=getppid();
+                        sleep(5);
+                        int pid5=getpid();
+                        printf("Parent id:%d child id5:%d\n",ppid4,pid4);
+                }
+        }
+}
+
+4.
+#include<sys/types.h>
+#include<unistd.h>
+#include<stdio.h>
+int main(){
+        int ppid1=getppid();
+        int pid1=getpid();
+        printf("Parent id:%d child id1:%d\n",ppid1,pid1);
+        int pid=fork();
+        if(pid==0){
+                int ppid2=getppid();
+                int pid2=getpid();
+                printf("Parent id:%d child id2:%d\n",ppid2,pid2);
+                pid2=fork();
+                if(pid2==0){
+                        //sleep(5);
+                        int ppid3=getppid();
+                        int pid3=getpid();
+                        printf("Parent id:%d child id3:%d\n",ppid3,pid3);
+                        pid3=fork();
+                        if(pid3==0){
+                                sleep(5);
+                                int ppid4=getppid();
+                                int pid4=getpid();
+                                printf("Parent id:%d child id4:%d\n",ppid4,pid4);
+                        }
+                }
+        }
+        int pidd=fork();
+        if(pidd==0){
+                int ppid4=getppid();
+                int pid4=getpid();
+                printf("Parent id:%d child id4:%d\n",ppid4,pid4);
+                pid4=fork();
+                if(pid4==0){
+                        int ppid5=getppid();
+                        sleep(5);
+                        int pid5=getpid();
+                        printf("Parent id:%d child id5:%d\n",ppid4,pid4);
+                        pid5=fork();
+                        if(pid5==0){
+                                int ppid5=getppid();
+                                sleep(5);
+                                int pid5=getpid();
+                                printf("Parent id:%d child id5:%d\n",ppid5,pid5);
+                        }
+                }
+        }
+}
